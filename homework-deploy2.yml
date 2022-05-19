@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: store-products
-        image: linuxacademycontent/store-products:1.0.0
+        image: taylen/k8shomework
         env:
           - name: MY_POD_NAME
             valueFrom:
