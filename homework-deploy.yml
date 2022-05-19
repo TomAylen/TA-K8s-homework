@@ -1,32 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: store-products
   labels:
-    app: example1
-  name: example1
+    app: store-products
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
-      app: example1
+      app: store-products
   template:
     metadata:
       labels:
-        app: example1
+        app: store-products
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx
-    env:
-- name: MY_POD_NAME
-  valueFrom:
-    fieldRef:
-      fieldPath: metadata.name
-- name: MY_POD_NAMESPACE
-  valueFrom:
-    fieldRef:
-      fieldPath: metadata.namespace
-- name: MY_POD_IP
-  valueFrom:
-    fieldRef:
-      fieldPath: status.podIP
+      - name: store-products
+        image: linuxacademycontent/store-products:1.0.0
+        ports:
+        - containerPort: 80
